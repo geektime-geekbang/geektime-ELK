@@ -29,7 +29,7 @@ services:
       - node.name=es7_01
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - discovery.seed_hosts=es7_01
+      - discovery.seed_hosts=es7_01,es7_02
       - cluster.initial_master_nodes=es7_01,es7_02
     ulimits:
       memlock:
@@ -49,7 +49,7 @@ services:
       - node.name=es7_02
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - discovery.seed_hosts=es7_01
+      - discovery.seed_hosts=es7_01,es7_02
       - cluster.initial_master_nodes=es7_01,es7_02
     ulimits:
       memlock:

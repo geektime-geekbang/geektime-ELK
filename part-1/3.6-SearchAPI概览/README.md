@@ -5,13 +5,13 @@
 具体参考“2.2节-Kibana的安装与界面快速浏览”一节教程
 
 ```
-//URI Query
+#URI Query
 GET kibana_sample_data_ecommerce/_search?q=customer_first_name:Eddie
 GET kibana*/_search?q=customer_first_name:Eddie
 GET /_all/_search?q=customer_first_name:Eddie
 
 
-//REQUEST Body
+#REQUEST Body
 POST kibana_sample_data_ecommerce/_search
 {
 	"profile": true,

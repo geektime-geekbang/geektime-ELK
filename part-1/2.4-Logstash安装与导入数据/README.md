@@ -7,9 +7,9 @@
 - movielens/logstash6.conf  //logstash 6.x 配置文件
 
 ```
-//下载与ES相同版本号的logstash，（7.1.0），并解压到相应目录
-//修改movielens目录下的logstash.conf文件
-//path修改为,你实际的movies.csv路径
+#下载与ES相同版本号的logstash，（7.1.0），并解压到相应目录
+#修改movielens目录下的logstash.conf文件
+#path修改为,你实际的movies.csv路径
 input {
   file {
     path => "YOUR_FULL_PATH_OF_movies.csv"
@@ -18,7 +18,7 @@ input {
   }
 }
 
-//启动Elasticsearch实例，然后启动 logstash，并制定配置文件导入数据
+#启动Elasticsearch实例，然后启动 logstash，并制定配置文件导入数据
 bin/logstash -f /YOUR_PATH_of_logstash.conf
 
 ```

@@ -4,8 +4,8 @@
 - 需导入Movie测试数据，具体参考“2.4-Logstash安装与导入数据”
 
 ```
-//ignore_unavailable=true，可以忽略尝试访问不存在的索引“404_idx”导致的报错
-//查询movies分页
+#ignore_unavailable=true，可以忽略尝试访问不存在的索引“404_idx”导致的报错
+#查询movies分页
 POST /movies,404_idx/_search?ignore_unavailable=true
 {
   "profile": true,
@@ -24,7 +24,7 @@ POST /kibana_sample_data_ecommerce/_search
 }
 
 
-//对日期排序
+#对日期排序
 POST kibana_sample_data_ecommerce/_search
 {
   "sort":[{"order_date":"desc"}],
@@ -34,7 +34,7 @@ POST kibana_sample_data_ecommerce/_search
 
 }
 
-//source filtering
+#source filtering
 POST kibana_sample_data_ecommerce/_search
 {
   "_source":["order_date"],
@@ -44,7 +44,7 @@ POST kibana_sample_data_ecommerce/_search
 }
 
 
-//脚本字段
+#脚本字段
 GET kibana_sample_data_ecommerce/_search
 {
   "script_fields": {

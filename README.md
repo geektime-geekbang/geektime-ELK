@@ -1,4 +1,5 @@
 # 《Elasticsearch 核心技术与实战》
+https://github.com/onebirdrocks/geektime-ELK/
 ## 第一部分：初识 Elasticsearch
 ### 第 1 章：概述
 1. 课程介绍
@@ -35,7 +36,7 @@
 5. 单字符串多字段查询：Dis Max Query
 6. 单字符串多字段查询：Multi Match
 7. 多语言及中文分词与检索
-8. Space Jam，一次全文搜索的实例 
+8. Space Jam，一次全文搜索的实例
 9. 使用 Search Template 和 Index Alias 查询
 10. 综合排序：Function Score Query 优化算分
 11. Term & Phrase Suggester
@@ -59,9 +60,10 @@
 1. 对象及 Nested 对象
 2. 文档的父子关系
 3. Update By Query & Reindex API
-4. Ingest Pipeline & Painless Script 
-5. Elasticsearch 数据建模最佳实践
-6. 第二部分总结回顾
+4. Ingest Pipeline & Painless Script
+6. Elasticsearch 数据建模实例
+7. Elasticsearch 数据建模最佳实践
+8. 第二部分总结回顾
 ## 第三部分：管理 Elasticsearch 集群
 ### 第 8 章：保护你的数据
 1. 集群身份认证与用户鉴权
@@ -72,8 +74,8 @@
 2. Hot & Warm 架构与 Shard Filtering
 3. 如何对集群进行容量规划
 4. 分片设计及管理
-5. 在公有云上管理与部署 Elasticsearch 集群
-6. 在私有云上管理 Elasticsearch 集群的一些方法
+5. 在私有云上管理 Elasticsearch 集群的一些方法
+6. 在公有云上管理与部署 Elasticsearch 集群
 ### 第 10 章：生产环境中的集群运维
 1. 集群健康与问题排查
 2. 生产环境常用配置与上线清单
@@ -95,7 +97,7 @@
 1. 使用 Index Pattern 配置数据
 2. 使用 Kibana Discover 探索数据
 3. 基本可视化组件介绍
-4. Visual Builder 介绍 
+4. Visual Builder 介绍
 5. 构建 Dashboard  
 ## 第 14 章：探索 X-Pack 套件
 1. 用 Monitoring 和 Alerting 监控 Elasticsearch 集群
@@ -117,3 +119,6 @@
 ### 备战：Elastic 认证
 1. Elastic 认证介绍
 2. 考点梳理
+
+# ELK 相关下载资源
+1. ELK 7.x  推荐官网直接下载，如网速低，可使用以下链接 - 百度网盘下载（https://pan.baidu.com/s/1CRT3W4wEESglCBDnslk2AA）

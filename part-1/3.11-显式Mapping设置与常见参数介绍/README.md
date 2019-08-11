@@ -2,7 +2,7 @@
 ## 课程Demos
 ```
 
-//设置 index 为 false
+#设置 index 为 false
 DELETE users
 PUT users
 {
@@ -41,7 +41,7 @@ POST /users/_search
 
 
 
-//设定Null_value
+#设定Null_value
 
 DELETE users
 PUT users
@@ -90,7 +90,7 @@ GET users/_search
 
 
 
-//设置 Copy to
+#设置 Copy to
 DELETE users
 PUT users
 {
@@ -128,7 +128,7 @@ POST users/_search
 }
 
 
-//数组类型
+#数组类型
 PUT users/_doc/1
 {
   "name":"onebird",

@@ -1,0 +1,17 @@
+{
+      "_source": ["title","overview"],
+      "size":20,
+      "query": {
+          "multi_match": {
+              "query": "basketball with cartoon aliens",
+              "fields": ["title^10","overview"]
+          }
+      },
+      "highlight" : {
+            "fields" : {
+                "overview" : { "pre_tags" : ["<em>"], "post_tags" : ["</em>"] },
+                "title" : { "pre_tags" : ["<em>"], "post_tags" : ["</em>"] }
+            }
+        }
+
+  }

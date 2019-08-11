@@ -2,7 +2,7 @@
 ## 课程Demo
 ```
 
-//数字字符串被映射成text，日期字符串被映射成日期
+#数字字符串被映射成text，日期字符串被映射成日期
 PUT ttemplate/_doc/1
 {
 	"someNumber":"1",
@@ -11,7 +11,7 @@ PUT ttemplate/_doc/1
 GET ttemplate/_mapping
 
 
-//Create a default template
+#Create a default template
 PUT _template/template_default
 {
   "index_patterns": ["*"],
@@ -38,12 +38,12 @@ PUT /_template/template_test
     }
 }
 
-//查看template信息
+#查看template信息
 GET /_template/template_default
 GET /_template/temp*
 
 
-//写入新的数据，index以test开头
+#写入新的数据，index以test开头
 PUT testtemplate/_doc/1
 {
 	"someNumber":"1",
@@ -71,7 +71,7 @@ DELETE /_template/template_test
 
 
 
-//Dynaminc Mapping 根据类型和字段名
+#Dynaminc Mapping 根据类型和字段名
 DELETE my_index
 
 PUT my_index/_doc/1
@@ -109,7 +109,7 @@ PUT my_index
 
 
 DELETE my_index
-//结合路径
+#结合路径
 PUT my_index
 {
   "mappings": {

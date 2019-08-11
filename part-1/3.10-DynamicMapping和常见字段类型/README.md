@@ -21,7 +21,7 @@ strict
 
 
 
-//写入文档，查看 Mapping
+#写入文档，查看 Mapping
 PUT mapping_test/_doc/1
 {
   "firstName":"Chan",
@@ -29,14 +29,14 @@ PUT mapping_test/_doc/1
   "loginDate":"2018-07-24T10:29:48.103Z"
 }
 
-//查看 Mapping文件
+#查看 Mapping文件
 GET mapping_test/_mapping
 
 
-//Delete index
+#Delete index
 DELETE mapping_test
 
-//dynamic mapping，推断字段的类型
+#dynamic mapping，推断字段的类型
 PUT mapping_test/_doc/1
 {
     "uid" : "123",
@@ -46,17 +46,17 @@ PUT mapping_test/_doc/1
     "heigh":180
 }
 
-//查看 Dynamic
+#查看 Dynamic
 GET mapping_test/_mapping
 
 
-//默认Mapping支持dynamic，写入的文档中加入新的字段
+#默认Mapping支持dynamic，写入的文档中加入新的字段
 PUT dynamic_mapping_test/_doc/1
 {
   "newField":"someValue"
 }
 
-//该字段可以被搜索，数据也在_source中出现
+#该字段可以被搜索，数据也在_source中出现
 POST dynamic_mapping_test/_search
 {
   "query":{
@@ -67,20 +67,20 @@ POST dynamic_mapping_test/_search
 }
 
 
-//修改为dynamic false
+#修改为dynamic false
 PUT dynamic_mapping_test/_mapping
 {
   "dynamic": false
 }
 
-//新增 anotherField
+#新增 anotherField
 PUT dynamic_mapping_test/_doc/10
 {
   "anotherField":"someValue"
 }
 
 
-//该字段不可以被搜索，应为dynamic已经被设置为false
+#该字段不可以被搜索，应为dynamic已经被设置为false
 POST dynamic_mapping_test/_search
 {
   "query":{
@@ -92,7 +92,7 @@ POST dynamic_mapping_test/_search
 
 get dynamic_mapping_test/_doc/10
 
-//修改为strict
+#修改为strict
 PUT dynamic_mapping_test/_mapping
 {
   "dynamic": "strict"
@@ -100,7 +100,7 @@ PUT dynamic_mapping_test/_mapping
 
 
 
-//写入数据出错，HTTP Code 400
+#写入数据出错，HTTP Code 400
 PUT dynamic_mapping_test/_doc/12
 {
   "lastField":"value"
