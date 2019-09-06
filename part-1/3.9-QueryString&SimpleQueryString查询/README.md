@@ -39,7 +39,7 @@ POST users/_search
 }
 
 
-//Simple Query 默认的operator是 Or
+#Simple Query 默认的operator是 Or
 POST users/_search
 {
   "query": {
@@ -75,7 +75,7 @@ GET /movies/_search
 }
 
 
-// 多fields
+# 多fields
 GET /movies/_search
 {
 	"profile": true,

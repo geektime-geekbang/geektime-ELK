@@ -1,10 +1,10 @@
 # Kibana 的安装与界面快速浏览
 ## 课程Demo
 ```
-//启动kibana
+#启动kibana
 bin/kibana
 
-//查看插件
+#查看插件
 bin/kibana-plugin list
 
 ```

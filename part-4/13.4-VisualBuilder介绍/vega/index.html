@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.0.0-rc.1"></script>
+
+  <script type="text/javascript">
+    var view;
+
+    vega.loader()
+      .load('https://github.com/onebirdrocks/geektime-ELK/blob/master/part-4/13.4-VisualBuilder%E4%BB%8B%E7%BB%8D/vega/barchart.vg.json')
+      .then(function(data) { render(JSON.parse(data)); });
+
+    function render(spec) {
+      console.log(sprc)
+      view = new vega.View(vega.parse(spec))
+        .renderer('canvas')
+        .initialize('#view')
+        .hover()
+        .run();
+    }
+  </script>
+</head>
+<body>
+  <div id="view"></div>
+</body>
+</html>

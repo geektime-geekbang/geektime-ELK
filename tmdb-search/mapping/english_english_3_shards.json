@@ -1,0 +1,33 @@
+{
+  "settings": {
+    "number_of_shards": 3,
+    "number_of_replicas": 1
+  },
+  "mappings": {
+    "properties": {
+      "overview": {
+        "type": "text",
+        "analyzer": "english",
+        "fields": {
+          "std": {
+            "type": "text",
+            "analyzer": "standard"
+          }
+        }
+      },
+      "popularity": {
+        "type": "float"
+      },
+      "title": {
+        "type": "text",
+        "analyzer": "english",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      }
+    }
+  }
+}

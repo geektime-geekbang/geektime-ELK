@@ -2,7 +2,7 @@
 ## 课程Demo
 - 需要通过Kibana导入Sample Data的飞机航班数据。具体参考“2.2节-Kibana的安装与界面快速浏览”
 ```
-//按照目的地进行分桶统计
+#按照目的地进行分桶统计
 GET kibana_sample_data_flights/_search
 {
 	"size": 0,
@@ -17,7 +17,7 @@ GET kibana_sample_data_flights/_search
 
 
 
-//查看航班目的地的统计信息，增加平均，最高最低价格
+#查看航班目的地的统计信息，增加平均，最高最低价格
 GET kibana_sample_data_flights/_search
 {
 	"size": 0,
@@ -49,7 +49,7 @@ GET kibana_sample_data_flights/_search
 
 
 
-//价格统计信息+天气信息
+#价格统计信息+天气信息
 GET kibana_sample_data_flights/_search
 {
 	"size": 0,

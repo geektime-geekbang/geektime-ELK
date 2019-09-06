@@ -18,7 +18,7 @@ GET /_cluster/health/kibana_sample_data_flights?level=shards
 The cluster state API allows access to metadata representing the state of the whole cluster. This includes information such as
 GET /_cluster/state
 
-//cluster get settings
+#cluster get settings
 GET /_cluster/settings
 GET /_cluster/settings?include_defaults=true
 

@@ -4,25 +4,25 @@
 进入 7.x-docker-2-es-instance目录
 
 ```
-//启动
+#启动
 docker-compose up
 
-//停止容器
+#停止容器
 docker-compose down
 
-//停止容器并且移除数据
+#停止容器并且移除数据
 docker-compose down -v
 
-//一些docker 命令
+#一些docker 命令
 docker ps
 docker stop Name/ContainerId
 docker start Name/ContainerId
 
-删除单个容器
+#删除单个容器
 $docker rm Name/ID
 -f, –force=false; -l, –link=false Remove the specified link and not the underlying container; -v, –volumes=false Remove the volumes associated to the container
 
-删除所有容器
+#删除所有容器
 $docker rm `docker ps -a -q`  
 停止、启动、杀死、重启一个容器
 $docker stop Name/ID  
@@ -39,3 +39,4 @@ $docker restart name/ID
 - 如何设置 Docker 网络 - https://www.elastic.co/cn/blog/docker-networking
 - Cerebro 源码 https://github.com/lmenezes/cerebro
 - 一个开源的 ELK（Elasticsearch + Logstash + Kibana） docker-compose 配置 https://github.com/deviantony/docker-elk
+- Install Elasticsearch with Docker https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docker.html

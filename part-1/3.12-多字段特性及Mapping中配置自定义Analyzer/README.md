@@ -22,7 +22,7 @@ POST _analyze
 
 
 
-//使用char filter进行替换
+#使用char filter进行替换
 POST _analyze
 {
   "tokenizer": "standard",

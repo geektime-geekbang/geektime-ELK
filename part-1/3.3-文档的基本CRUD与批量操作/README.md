@@ -1,8 +1,8 @@
 # 文档的基本 CRUD 与批量操作
 ## 课程Demo
 ```
-//############Create Document############
-//create document. 自动生成 _id
+############Create Document############
+#create document. 自动生成 _id
 POST users/_doc
 {
 	"user" : "Mike",
@@ -10,7 +10,7 @@ POST users/_doc
     "message" : "trying out Kibana"
 }
 
-//create document. 指定Id。如果id已经存在，报错
+#create document. 指定Id。如果id已经存在，报错
 PUT users/_doc/1?op_type=create
 {
     "user" : "Jack",
@@ -18,7 +18,7 @@ PUT users/_doc/1?op_type=create
     "message" : "trying out Elasticsearch"
 }
 
-//create document. 指定 ID 如果已经存在，就报错
+#create document. 指定 ID 如果已经存在，就报错
 PUT users/_create/1
 {
      "user" : "Jack",
@@ -26,13 +26,13 @@ PUT users/_create/1
     "message" : "trying out Elasticsearch"
 }
 
-//### Get Document by ID
-//Get the document by ID
+### Get Document by ID
+#Get the document by ID
 GET users/_doc/1
 
 
-//###  Index & Update
-//Update 指定 ID  (先删除，在写入)
+###  Index & Update
+#Update 指定 ID  (先删除，在写入)
 GET users/_doc/1
 
 PUT users/_doc/1
@@ -42,8 +42,8 @@ PUT users/_doc/1
 }
 
 
-//GET users/_doc/1
-// 在原文档上增加字段
+#GET users/_doc/1
+#在原文档上增加字段
 POST users/_update/1/
 {
     "doc":{
@@ -54,15 +54,15 @@ POST users/_update/1/
 
 
 
-//### Delete by Id
-//删除文档
+### Delete by Id
+# 删除文档
 DELETE users/_doc/1
 
 
-//### Bulk 操作
-//执行两次，查看每次的结果
+### Bulk 操作
+#执行两次，查看每次的结果
 
-//执行第1次
+#执行第1次
 POST _bulk
 { "index" : { "_index" : "test", "_id" : "1" } }
 { "field1" : "value1" }
@@ -73,7 +73,7 @@ POST _bulk
 { "doc" : {"field2" : "value2"} }
 
 
-//执行第2次
+#执行第2次
 POST _bulk
 { "index" : { "_index" : "test", "_id" : "1" } }
 { "field1" : "value1" }
@@ -83,7 +83,7 @@ POST _bulk
 { "update" : {"_id" : "1", "_index" : "test"} }
 { "doc" : {"field2" : "value2"} }
 
-//### mget 操作
+### mget 操作
 GET /_mget
 {
     "docs" : [
@@ -99,7 +99,7 @@ GET /_mget
 }
 
 
-//URI中指定index
+#URI中指定index
 GET /test/_mget
 {
     "docs" : [
@@ -139,7 +139,7 @@ GET /_mget
     ]
 }
 
-//### msearch 操作
+### msearch 操作
 POST kibana_sample_data_ecommerce/_msearch
 {}
 {"query" : {"match_all" : {}},"size":1}
@@ -147,8 +147,8 @@ POST kibana_sample_data_ecommerce/_msearch
 {"query" : {"match_all" : {}},"size":2}
 
 
-//### 清除测试数据
-//清除数据
+### 清除测试数据
+#清除数据
 DELETE users
 DELETE test
 DELETE test2
