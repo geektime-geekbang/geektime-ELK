@@ -1,6 +1,8 @@
 # 使用 shrink与rolloverAPI有效的管理索引
 #课程demo
 ```
+
+
 # 打开关闭索引
 DELETE test
 #查看索引是否存在
@@ -33,11 +35,13 @@ POST test/_count
 GET _cat/nodes
 GET _cat/nodeattrs
 
-
+DELETE my_source_index
+DELETE my_target_index
 PUT my_source_index
 {
  "settings": {
-   "number_of_shards": 4
+   "number_of_shards": 4,
+   "number_of_replicas": 0
  }
 }
 
@@ -46,13 +50,13 @@ PUT my_source_index/_doc/1
   "key":"value"
 }
 
-GET _cat/shards
+GET _cat/shards/my_source_index
 
-# 分片数3会失败
+# 分片数3，会失败
 POST my_source_index/_shrink/my_target_index
 {
   "settings": {
-    "index.number_of_replicas": 1,
+    "index.number_of_replicas": 0,
     "index.number_of_shards": 3,
     "index.codec": "best_compression"
   },
@@ -61,11 +65,13 @@ POST my_source_index/_shrink/my_target_index
   }
 }
 
-# 所有分片必须在同一节点上
+
+
+# 报错，因为没有置成 readonly
 POST my_source_index/_shrink/my_target_index
 {
   "settings": {
-    "index.number_of_replicas": 1,
+    "index.number_of_replicas": 0,
     "index.number_of_shards": 2,
     "index.codec": "best_compression"
   },
@@ -74,8 +80,29 @@ POST my_source_index/_shrink/my_target_index
   }
 }
 
+#将 my_source_index 设置为只读
+PUT /my_source_index/_settings
+{
+  "settings": {
+    "index.blocks.write": true
+  }
+}
+
+# 报错，必须都在一个节点
+POST my_source_index/_shrink/my_target_index
+{
+  "settings": {
+    "index.number_of_replicas": 0,
+    "index.number_of_shards": 2,
+    "index.codec": "best_compression"
+  },
+  "aliases": {
+    "my_search_indices": {}
+  }
+}
 
 DELETE my_source_index
+## 确保分片都在 hot
 PUT my_source_index
 {
  "settings": {
@@ -90,20 +117,7 @@ PUT my_source_index/_doc/1
   "key":"value"
 }
 
-GET _cat/shards
-
-# 必须设置成只读
-POST my_source_index/_shrink/my_target_index
-{
-  "settings": {
-    "index.number_of_replicas": 1,
-    "index.number_of_shards": 2,
-    "index.codec": "best_compression"
-  },
-  "aliases": {
-    "my_search_indices": {}
-  }
-}
+GET _cat/shards/my_source_index
 
 #设置为只读
 PUT /my_source_index/_settings
@@ -111,11 +125,6 @@ PUT /my_source_index/_settings
   "settings": {
     "index.blocks.write": true
   }
-}
-
-PUT my_source_index/_doc/1
-{
-  "key":"value"
 }
 
 
@@ -132,7 +141,7 @@ POST my_source_index/_shrink/my_target_index
 }
 
 
-GET _cat/shards
+GET _cat/shards/my_target_index
 
 # My target_index状态为也只读
 PUT my_target_index/_doc/1
@@ -144,6 +153,7 @@ PUT my_target_index/_doc/1
 
 # Split Index
 DELETE my_source_index
+DELETE my_target_index
 
 PUT my_source_index
 {
@@ -158,7 +168,7 @@ PUT my_source_index/_doc/1
   "key":"value"
 }
 
-GET _cat/shards
+GET _cat/shards/my_source_index
 
 # 必须是倍数
 POST my_source_index/_split/my_target
@@ -189,20 +199,14 @@ PUT /my_source_index/_settings
 POST my_source_index/_split/my_target_index
 {
   "settings": {
-    "index.number_of_shards": 8
+    "index.number_of_shards": 8,
+    "index.number_of_replicas":0
   }
 }
 
-DELETE my_target_index
+GET _cat/shards/my_target_index
 
-POST my_source_index/_split/my_target_index
-{
-  "settings": {
-    "index.number_of_shards": 8
-  }
-}
 
-GET _cat/shards
 
 # write block
 PUT my_target_index/_doc/1
@@ -213,7 +217,7 @@ PUT my_target_index/_doc/1
 
 
 #Rollover API
-
+DELETE nginx-logs*
 # 不设定 is_write_true
 # 名字符合命名规范
 PUT /nginx-logs-000001
@@ -244,6 +248,9 @@ GET /nginx_logs_write/_count
 GET /nginx_logs_write
 
 
+DELETE apache-logs*
+
+
 # 设置 is_write_index
 PUT apache-logs1
 {
@@ -253,14 +260,15 @@ PUT apache-logs1
     }
   }
 }
+POST apache_logs/_count
 
-POST apache-logs1/_doc
+POST apache_logs/_doc
 {
   "key":"value"
 }
 
 # 需要指定 target 的名字
-POST /apache_logs/_rollover/apache-logs2
+POST /apache_logs/_rollover/apache-logs8xxxx
 {
   "conditions": {
     "max_age":   "1d",
@@ -269,30 +277,11 @@ POST /apache_logs/_rollover/apache-logs2
   }
 }
 
+
 # 查看 Alias信息
 GET /apache_logs
 
 
-
-GET _cluster/health
-GET _cat/allocation?v
-GET _cat/allocation/_explain?v
-GET /my_source_index/_settings
-
-GET _cat/shards?h=index,shard,prirep,state,unassigned.reason| grepUNASSIGNED
-
-
-
-DELETE *
-
-
-
-
-
-
-GET _cat/recovery?v
-GET _cat/recovery?v&h=i,s,t,ty,st,shost,thost,f,fp,b,bp
-GET /_shard_stores
 ```
 ## 相关阅读
 - https://www.elastic.co/guide/en/elasticsearch/reference/7.1/indices-shrink-index.html

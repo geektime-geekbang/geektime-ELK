@@ -1,0 +1,15 @@
+PUT final-stackoverflow-survey
+{
+  "mappings": {
+    "dynamic_templates": [
+      {
+        "strings_as_keywords": {
+          "match_mapping_type": "string",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      }
+    ]
+  }
+}

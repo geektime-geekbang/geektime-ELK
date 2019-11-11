@@ -80,7 +80,7 @@ PUT dynamic_mapping_test/_doc/10
 }
 
 
-#该字段不可以被搜索，应为dynamic已经被设置为false
+#该字段不可以被搜索，因为dynamic已经被设置为false
 POST dynamic_mapping_test/_search
 {
   "query":{

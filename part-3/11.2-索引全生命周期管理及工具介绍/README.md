@@ -1,7 +1,15 @@
 # 索引全生命周期管理及工具介绍
 ## 课程demo
 ```
+
+# 运行三个节点，分片 将box_type设置成 hot，warm和cold
+# 具体参考 github下，docker-hot-warm-cold 下的docker-compose 文件
+
+
+
 DELETE *
+
+
 
 # 设置 1秒刷新1次，生产环境10分种刷新一次
 PUT _cluster/settings
