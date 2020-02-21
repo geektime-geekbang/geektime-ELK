@@ -1,0 +1,56 @@
+PUT _ingest/pipeline/stackoverflow_pipeline
+{
+  "description": "Pipeline for stackoverflow survey",
+  "processors": [
+    {
+      "split": {
+        "field": "DatabaseDesireNextYear",
+        "separator": ";"
+      }
+    },
+    
+    {
+      "split": {
+        "field": "DatabaseWorkedWith",
+        "separator": ";"
+      }
+    },
+    
+    {
+      "split": {
+        "field": "DevEnviron",
+        "separator": ";"
+      }
+    },
+    
+    {
+      "split": {
+        "field": "MiscTechDesireNextYear",
+        "separator": ";"
+      }
+    },
+    
+    {
+      "split": {
+        "field": "PlatformDesireNextYear",
+        "separator": ";"
+      }
+    },
+
+   {
+      "split": {
+        "field": "WebFrameDesireNextYear",
+        "separator": ";"
+      }
+    }
+    ,
+
+   {
+      "split": {
+        "field": "Containers",
+        "separator": ";"
+      }
+    }
+
+  ]
+}

@@ -33,4 +33,5 @@ POST /%3Clogs-%7Bnow%2Fw%7D%3E/_search
 
 ```
 ## 相关阅读
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/capacity-planning.html
 - https://yq.aliyun.com/articles/670118

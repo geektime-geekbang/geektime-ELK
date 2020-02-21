@@ -1,0 +1,262 @@
+PUT stackoverflow-surveys-results
+{
+  "mappings": {
+    "properties": {
+      "Age": {
+        "type": "keyword"
+      },
+      "Age1stCode": {
+        "type": "keyword"
+      },
+      "BetterLife": {
+        "type": "keyword"
+      },
+      "BlockchainIs": {
+        "type": "keyword"
+      },
+      "BlockchainOrg": {
+        "type": "keyword"
+      },
+      "CareerSat": {
+        "type": "keyword"
+      },
+      "CodeRev": {
+        "type": "keyword"
+      },
+      "CodeRevHrs": {
+        "type": "keyword"
+      },
+      "CompFreq": {
+        "type": "keyword"
+      },
+      "CompTotal": {
+        "type": "keyword"
+      },
+      "Containers": {
+        "type": "keyword"
+      },
+      "ConvertedComp": {
+        "type": "keyword"
+      },
+      "Country": {
+        "type": "keyword"
+      },
+      "CurrencyDesc": {
+        "type": "keyword"
+      },
+      "CurrencySymbol": {
+        "type": "keyword"
+      },
+      "DatabaseDesireNextYear": {
+        "type": "keyword"
+      },
+      "DatabaseWorkedWith": {
+        "type": "keyword"
+      },
+      "Dependents": {
+        "type": "keyword"
+      },
+      "DevEnviron": {
+        "type": "keyword"
+      },
+      "DevType": {
+        "type": "keyword"
+      },
+      "EdLevel": {
+        "type": "keyword"
+      },
+      "EduOther": {
+        "type": "keyword"
+      },
+      "Employment": {
+        "type": "keyword"
+      },
+      "EntTeams": {
+        "type": "keyword"
+      },
+      "Ethnicity": {
+        "type": "keyword"
+      },
+      "Extraversion": {
+        "type": "keyword"
+      },
+      "FizzBuzz": {
+        "type": "keyword"
+      },
+      "Gender": {
+        "type": "keyword"
+      },
+      "Hobbyist": {
+        "type": "keyword"
+      },
+      "ITperson": {
+        "type": "keyword"
+      },
+      "ImpSyn": {
+        "type": "keyword"
+      },
+      "JobFactors": {
+        "type": "keyword"
+      },
+      "JobSat": {
+        "type": "keyword"
+      },
+      "JobSeek": {
+        "type": "keyword"
+      },
+      "LanguageDesireNextYear": {
+        "type": "keyword"
+      },
+      "LanguageWorkedWith": {
+        "type": "keyword"
+      },
+      "LastHireDate": {
+        "type": "keyword"
+      },
+      "LastInt": {
+        "type": "keyword"
+      },
+      "MainBranch": {
+        "type": "keyword"
+      },
+      "MgrIdiot": {
+        "type": "keyword"
+      },
+      "MgrMoney": {
+        "type": "keyword"
+      },
+      "MgrWant": {
+        "type": "keyword"
+      },
+      "MiscTechDesireNextYear": {
+        "type": "keyword"
+      },
+      "MiscTechWorkedWith": {
+        "type": "keyword"
+      },
+      "OffOn": {
+        "type": "keyword"
+      },
+      "OpSys": {
+        "type": "keyword"
+      },
+      "OpenSource": {
+        "type": "keyword"
+      },
+      "OpenSourcer": {
+        "type": "keyword"
+      },
+      "OrgSize": {
+        "type": "keyword"
+      },
+      "PlatformDesireNextYear": {
+        "type": "keyword"
+      },
+      "PlatformWorkedWith": {
+        "type": "keyword"
+      },
+      "PurchaseHow": {
+        "type": "keyword"
+      },
+      "PurchaseWhat": {
+        "type": "keyword"
+      },
+      "Respondent": {
+        "type": "keyword"
+      },
+      "ResumeUpdate": {
+        "type": "keyword"
+      },
+      "SOAccount": {
+        "type": "keyword"
+      },
+      "SOComm": {
+        "type": "keyword"
+      },
+      "SOFindAnswer": {
+        "type": "keyword"
+      },
+      "SOHowMuchTime": {
+        "type": "keyword"
+      },
+      "SOJobs": {
+        "type": "keyword"
+      },
+      "SONewContent": {
+        "type": "keyword"
+      },
+      "SOPartFreq": {
+        "type": "keyword"
+      },
+      "SOTimeSaved": {
+        "type": "keyword"
+      },
+      "SOVisit1st": {
+        "type": "keyword"
+      },
+      "SOVisitFreq": {
+        "type": "keyword"
+      },
+      "SOVisitTo": {
+        "type": "keyword"
+      },
+      "ScreenName": {
+        "type": "keyword"
+      },
+      "SocialMedia": {
+        "type": "keyword"
+      },
+      "Student": {
+        "type": "keyword"
+      },
+      "SurveyEase": {
+        "type": "keyword"
+      },
+      "SurveyLength": {
+        "type": "keyword"
+      },
+      "Trans,Sexuality": {
+        "type": "keyword"
+      },
+      "UndergradMajor": {
+        "type": "keyword"
+      },
+      "UnitTests": {
+        "type": "keyword"
+      },
+      "WebFrameDesireNextYear": {
+        "type": "keyword"
+      },
+      "WebFrameWorkedWith": {
+        "type": "keyword"
+      },
+      "WelcomeChange": {
+        "type": "keyword"
+      },
+      "WorkChallenge": {
+        "type": "keyword"
+      },
+      "WorkLoc": {
+        "type": "keyword"
+      },
+      "WorkPlan": {
+        "type": "keyword"
+      },
+      "WorkRemote": {
+        "type": "keyword"
+      },
+      "WorkWeekHrs": {
+        "type": "keyword"
+      },
+      "YearsCode": {
+        "type": "keyword"
+      },
+      "YearsCodePro": {
+        "type": "keyword"
+      },
+      "path": {
+        "type": "keyword"
+      }
+    }
+  }
+}

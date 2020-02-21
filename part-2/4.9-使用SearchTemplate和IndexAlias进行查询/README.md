@@ -33,4 +33,63 @@ POST tmdb/_search/template
 }
 
 
+PUT movies-2019/_doc/1
+{
+  "name":"the matrix",
+  "rating":5
+}
+
+PUT movies-2019/_doc/2
+{
+  "name":"Speed",
+  "rating":3
+}
+
+POST _aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "movies-2019",
+        "alias": "movies-latest"
+      }
+    }
+  ]
+}
+
+POST movies-latest/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+POST _aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "movies-2019",
+        "alias": "movies-lastest-highrate",
+        "filter": {
+          "range": {
+            "rating": {
+              "gte": 4
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+
+POST movies-lastest-highrate/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+
+
 ```

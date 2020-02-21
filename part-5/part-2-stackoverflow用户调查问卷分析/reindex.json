@@ -1,0 +1,10 @@
+POST _reindex?wait_for_completion=false
+{
+  "source": {
+    "index": "stackoverflow-survey-raw"
+  },
+  "dest": {
+    "index": "final-stackoverflow-survey",
+    "pipeline": "stackoverflow_pipeline"
+  }
+}
