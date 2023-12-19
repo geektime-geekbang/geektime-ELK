@@ -11,7 +11,7 @@ services:
     ports:
       - "5601:5601"
     networks:
-      - es7net
+      - es73net
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.1.0
     container_name: es73
